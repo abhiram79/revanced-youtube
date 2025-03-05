@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+# download apktool 
+wget https://github.com/iBotPeaches/Apktool/releases/latest/download/apktool.jar
+
+
+
 chmod +x *
 
 bash decompile.sh 
@@ -18,5 +24,6 @@ echo "Apk signed sucessfully"
 rm -rf yt-plus
 rm -rf patch.zip
 rm -rf patch
+rm -rf apktool.jar
 
 echo "Done"
