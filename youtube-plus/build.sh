@@ -2,8 +2,9 @@
 
 
 # download apktool 
-wget https://github.com/iBotPeaches/Apktool/releases/latest/download/apktool.jar
+wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.11.0.jar
 
+mv apktool_2.11.0.jar apktool.jar
 
 
 chmod +x *
