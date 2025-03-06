@@ -1,30 +1,34 @@
 #!/bin/bash
 
+# Prompt for APK URL and directory name
+read -p "Enter APK URL: " target_apk
+target_dir="yt-plus"
 
-# download apktool 
-wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.11.0.jar
+# Download the APK file
+wget -O ytplus.apk "$target_apk"
 
-mv apktool_2.11.0.jar apktool.jar
+# Decompile the APK using apktool
+java -jar apktool.jar d ytplus.apk -o "$target_dir"
 
+echo "APK decompiled to $target_dir"
 
-chmod +x *
+# remove original files
+rm -rf yt-plus/res/values/strings.xml
+rm -rf yt-plus/res/xml
 
-bash decompile.sh 
-echo "Decompiled sucessfully"
+# Get modified files
+wget 
+unzip patch.zip
 
-bash patch.sh
-echo "Patched sucessfully"
+# add modified files
+cp patch/strings.xml yt-plus/res/values/
+cp -r patch/xml yt-plus/res/
 
-bash recompile.sh
-echo "Apk compiled sucessfully"
+# Prompt for the decompiled APK directory
+target_dir="yt-plus"
+output_apk="Youtube_plus.apk"
 
-bash sign.sh
-echo "Apk signed sucessfully"
+# Recompile the APK
+java -jar apktool.jar b "$target_dir" -o "$output_apk"
 
-# clean
-rm -rf yt-plus
-rm -rf patch.zip
-rm -rf patch
-rm -rf apktool.jar
-
-echo "Done"
+echo "APK recompiled as $output_apk"
