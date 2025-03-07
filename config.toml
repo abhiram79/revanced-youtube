@@ -1,7 +1,7 @@
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
 build-mode = "both"
-included-patches = "'Hide ads' 'Video ads' 'Downloads' 'Change header' 'Spoof app version' 'GmsCore support' 'Spoof video streams'"
+included-patches = "'Hide ads' 'Video ads' 'Downloads'  'Spoof app version' 'GmsCore support' 'Spoof video streams'"
 exclusive-patches = true
 patcher-args = "-Oheader=patches/header/ "
 
